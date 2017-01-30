@@ -7,6 +7,7 @@ const seniorities = [
   'Guru',
   'Chief',
   'Intern',
+  '',
 ];
 
 const titles = [
@@ -29,6 +30,10 @@ const titles = [
   'Ruby',
   'Python',
   'Security',
+  'Customer Hapiness',
+  'Headhunter',
+  'Social',
+  'Delivery',
 ];
 
 const specialization = [
@@ -42,6 +47,8 @@ const specialization = [
   'Wizard',
   'Hacker',
   'Master',
+  'Engineer',
+  'Architect',
 ];
 
 const getRandom = arr => {
