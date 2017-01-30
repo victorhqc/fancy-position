@@ -1,6 +1,6 @@
 {
   "name": "fancy-tech-position-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create fancy positions, that nobody really know what they are for. Just for the lols ",
   "main": "src/index.js",
   "bin": {
