@@ -1,0 +1,13 @@
+{
+  "name": "fancy-tech-position-generator",
+  "version": "1.0.0",
+  "description": "Create fancy positions, that nobody really know what they are for. Just for the lols ",
+  "main": "src/index.js",
+  "bin": {
+    "fancy-position": "./src/cli.js"
+  },
+  "repository": "git@github.com:victorhqc/fancy-tech-position-generator.git",
+  "author": "Victor Quiroz <victorhqc@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
