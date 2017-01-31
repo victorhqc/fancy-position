@@ -1,11 +1,11 @@
 # fancy-position
-Create fancy positions, that nobody really know what they are for. Just for the lols
+Create fancy positions, that nobody know what they are for. Just for the lols
 
 
 # Install
 
 ```
-npm i fancy-tech-position-generator -g
+npm i fancy-position -g
 ```
 
 # Use
