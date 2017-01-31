@@ -57,4 +57,4 @@ const getRandom = arr => {
   ];
 }
 
-module.exports = () => `${getRandom(seniorities)} ${getRandom(titles)} ${getRandom(specialization)}`;
+module.exports = () => `${getRandom(seniorities)} ${getRandom(titles)} ${getRandom(specialization)}`.trim();
