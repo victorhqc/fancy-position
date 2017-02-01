@@ -34,11 +34,11 @@ const accumulateValidWords = (wordSources, { techPosition, source, bannedWords }
 
 const generateTechPosition = (wordSources) => {
   const sources = ['seniorities', 'titles', 'specialization'];
+  const curriedAccumulator = curry(accumulateValidWords)(wordSources);
 
-  return sources.reduce((techPosition, source) => {
-    const curriedAccumulator = curry(accumulateValidWords)(wordSources);
-    return curriedAccumulator({ techPosition, source });
-  }, '').trim();
+  const reduce = (techPosition, source) => curriedAccumulator({ techPosition, source });
+
+  return sources.reduce(reduce, '').trim();
 };
 
 module.exports = {
