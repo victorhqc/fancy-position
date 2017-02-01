@@ -1,5 +1,5 @@
 #!/usr/bin/env node
+const wordSources = require('./sources');
+const { generateTechPosition } = require('./index');
 
-const title = require('./');
-
-process.stdout.write(`${title()}\n`);
+process.stdout.write(`${generateTechPosition(wordSources)}\n`);

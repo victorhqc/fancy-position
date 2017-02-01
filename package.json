@@ -1,6 +1,6 @@
 {
   "name": "fancy-position",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Create fancy positions, that nobody really know what they are for. Just for the lols ",
   "main": "src/index.js",
   "bin": {
@@ -9,5 +9,18 @@
   "repository": "git@github.com:victorhqc/fancy-position.git",
   "author": "Victor Quiroz <victorhqc@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "devDependencies": {
+    "deep-freeze": "^0.0.1",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
 }

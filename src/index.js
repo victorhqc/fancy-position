@@ -1,60 +1,49 @@
-const seniorities = [
-  'Lead',
-  'Jr',
-  'Senior',
-  'Mid',
-  'Advanced',
-  'Guru',
-  'Chief',
-  'Intern',
-  '',
-];
+const curry = require('lodash/curry');
 
-const titles = [
-  'Backend',
-  'Frontend',
-  'Fullstack',
-  'Project',
-  'Automation',
-  'Testing',
-  'Operator',
-  'Generation',
-  'Analyst',
-  'Designer',
-  'UX/UI',
-  'Node.js',
-  'PHP',
-  'Go',
-  'JavaScript',
-  'C#',
-  'Ruby',
-  'Python',
-  'Security',
-  'Customer Hapiness',
-  'Headhunter',
-  'Social',
-  'Delivery',
-];
+const getRandom = (arr, banned = []) => {
+  const availableArr = arr.filter(ar => banned.indexOf(ar) < 0);
 
-const specialization = [
-  'Developer',
-  'Manager',
-  'Specialist',
-  'Evangelist',
-  'Ninja',
-  'Enthusiast',
-  'Expert',
-  'Wizard',
-  'Hacker',
-  'Master',
-  'Engineer',
-  'Architect',
-];
-
-const getRandom = arr => {
-  return arr[
-    Math.floor(Math.random() * arr.length)
+  return availableArr[
+    Math.floor(Math.random() * availableArr.length)
   ];
-}
+};
 
-module.exports = () => `${getRandom(seniorities)} ${getRandom(titles)} ${getRandom(specialization)}`.trim();
+const isWordAlreadyUsed = ({ techPosition, word }) => {
+  if (!word) { return false; }
+
+  const regexp = new RegExp(word, 'gi');
+
+  return techPosition.search(regexp) !== -1;
+};
+
+const accumulateValidWords = (wordSources, { techPosition, source, bannedWords }) => {
+  const word = getRandom(wordSources[source], bannedWords);
+  const isUsed = isWordAlreadyUsed({ techPosition, word });
+
+  if (isUsed) {
+    return accumulateValidWords(wordSources, {
+      techPosition,
+      source,
+      // I wish Node.js supported spread operator by now
+      bannedWords: (bannedWords || []).concat([word]),
+    });
+  }
+
+  return `${techPosition} ${word}`;
+};
+
+const generateTechPosition = (wordSources) => {
+  const sources = ['seniorities', 'titles', 'specialization'];
+
+  return sources.reduce((techPosition, source) => {
+    const curriedAccumulator = curry(accumulateValidWords)(wordSources);
+    return curriedAccumulator({ techPosition, source });
+  }, '').trim();
+};
+
+module.exports = {
+  getRandom,
+  isWordAlreadyUsed,
+  accumulateValidWords,
+  generateTechPosition,
+};
