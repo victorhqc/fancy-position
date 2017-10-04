@@ -1,7 +1,7 @@
 {
   "name": "fancy-position",
-  "version": "2.0.1",
-  "description": "Create fancy positions, that nobody really know what they are for. Just for the lols ",
+  "version": "2.0.2",
+  "description": "Create fancy IT positions, that nobody really know what they are for.",
   "main": "src/index.js",
   "bin": {
     "fancy-position": "./src/cli.js"
